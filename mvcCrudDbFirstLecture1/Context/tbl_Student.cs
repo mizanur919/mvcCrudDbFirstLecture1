@@ -11,13 +11,20 @@ namespace mvcCrudDbFirstLecture1.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_Student
     {
         public int ID { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string Name { get; set; }
         public string Fname { get; set; }
+        [Required(ErrorMessage = "Required")]
+        [EmailAddress]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Required")]
+        [MinLength(11, ErrorMessage = "Mobile Number length minimum 11 Digits")]
+        [MaxLength(14, ErrorMessage ="Not more than 14 digit")]
         public string Mobile { get; set; }
         public string Description { get; set; }
     }
